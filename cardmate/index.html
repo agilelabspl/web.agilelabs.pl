@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7B2FBE">
+
+<title>CardMate: offline loyalty card wallet, no account required</title>
+<meta name="description" content="All your loyalty cards in one offline place. No account, no ads, no internet needed. Free with a $6.99 one-time premium unlock. Built solo by Pawel Lewinski.">
+<meta name="author" content="Pawel Lewinski">
+<link rel="canonical" href="https://agilelabs.pl/cardmate/">
+
+<meta property="og:title" content="CardMate: offline loyalty card wallet">
+<meta property="og:description" content="All your loyalty cards in one offline place. No account, no ads, no internet needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agilelabs.pl/cardmate/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://agilelabs.pl/cardmate/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CardMate: offline loyalty card wallet">
+<meta name="twitter:description" content="All your loyalty cards in one offline place. No account, no ads, no internet needed.">
+<meta name="twitter:image" content="https://agilelabs.pl/cardmate/og-image.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "CardMate",
+  "operatingSystem": "iOS",
+  "applicationCategory": "UtilitiesApplication",
+  "url": "https://apps.apple.com/app/id787144602",
+  "image": "https://agilelabs.pl/icons/cardmate.png",
+  "description": "An offline loyalty card wallet for iPhone. No account, no ads, no internet needed. Scan each card once, show the barcode at checkout.",
+  "author": {
+    "@type": "Person",
+    "name": "Pawel Lewinski",
+    "url": "https://agilelabs.pl/"
+  },
+  "offers": [
+    {"@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free, 3 cards"},
+    {"@type": "Offer", "price": "6.99", "priceCurrency": "USD", "name": "Premium unlock, one time"}
+  ],
+  "operatingSystem": "iOS 16.4+"
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:17px;line-height:1.65;
+  color:#111827;background:#fafaf9;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+
+:root{
+  --ink:#111827;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --bg:#fafaf9;
+  --card:#ffffff;
+  --accent:#7B2FBE;
+  --accent-soft:rgba(123,47,190,0.08);
+  --max:900px;
+}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{padding:28px 0;border-bottom:1px solid var(--line);background:rgba(250,250,249,0.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.nav-logo img{width:28px;height:28px;border-radius:7px}
+.nav-back{font-size:14px;color:var(--muted);transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.nav-back::before{content:"← "}
+
+/* HERO */
+.hero{padding:56px 0 56px;text-align:center}
+.hero-icon{width:96px;height:96px;border-radius:22px;margin:0 auto 24px;overflow:hidden;box-shadow:0 20px 40px rgba(123,47,190,0.25)}
+.hero-icon img{width:100%;height:100%;object-fit:cover}
+h1{
+  font-size:clamp(2.2rem,4.5vw,3.2rem);
+  line-height:1.1;letter-spacing:-0.025em;
+  font-weight:800;margin:0 0 16px;
+}
+.hero-tag{
+  font-size:clamp(1.1rem,1.6vw,1.3rem);
+  color:var(--muted);max-width:560px;margin:0 auto 32px;
+}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+.btn-primary{
+  background:var(--accent);color:#fff;
+  padding:16px 32px;border-radius:12px;
+  font-weight:700;font-size:16px;
+  transition:background .15s,transform .15s,box-shadow .15s;
+  box-shadow:0 8px 20px rgba(123,47,190,0.3);
+}
+.btn-primary:hover{background:#6a2aa8;transform:translateY(-2px);box-shadow:0 12px 28px rgba(123,47,190,0.4)}
+.btn-secondary{
+  color:var(--ink);font-weight:600;font-size:15px;
+  padding:16px 8px;transition:color .15s;
+}
+.btn-secondary:hover{color:var(--accent)}
+.btn-secondary::after{content:" →";margin-left:2px}
+.hero-badges{
+  display:flex;gap:20px;justify-content:center;
+  margin-top:28px;font-size:13px;color:var(--muted);
+  flex-wrap:wrap;letter-spacing:0.03em;
+}
+.hero-badges span::before{content:"✓ ";color:var(--accent);font-weight:700}
+
+/* SECTIONS */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.eyebrow{
+  font-size:13px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.1em;
+  margin:0 0 12px;text-align:center;
+}
+h2{
+  font-size:clamp(1.7rem,3vw,2.4rem);
+  line-height:1.2;letter-spacing:-0.02em;
+  font-weight:800;margin:0 0 20px;text-align:center;
+}
+.lead{
+  font-size:1.1rem;color:var(--muted);
+  max-width:600px;margin:0 auto 48px;text-align:center;
+}
+
+/* PROBLEM */
+.problem-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.problem-card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:28px 24px;
+}
+.problem-icon{
+  font-size:28px;margin-bottom:12px;
+}
+.problem-title{
+  font-size:16px;font-weight:700;margin:0 0 8px;
+}
+.problem-desc{
+  font-size:14px;color:var(--muted);margin:0;line-height:1.55;
+}
+
+/* HOW IT WORKS */
+.steps{display:flex;flex-direction:column;gap:16px}
+.step{
+  display:flex;gap:20px;align-items:flex-start;
+  background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:24px 28px;
+}
+.step-num{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent-soft);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:16px;flex-shrink:0;
+}
+.step-body{flex:1}
+.step-title{font-weight:700;margin:0 0 6px;font-size:17px}
+.step-desc{color:var(--muted);margin:0;font-size:15px}
+
+/* FEATURES */
+.features-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+}
+.feature{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:24px;
+}
+.feature-title{
+  font-size:15px;font-weight:700;margin:0 0 6px;
+  display:flex;align-items:center;gap:8px;
+}
+.feature-title::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:var(--accent);display:inline-block;
+}
+.feature-desc{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+
+/* STORY */
+.story{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px}
+.story p{margin:0 0 16px;font-size:16px;line-height:1.75}
+.story p:last-child{margin-bottom:0}
+.story strong{color:var(--ink)}
+.story-meta{
+  display:flex;gap:24px;margin-top:24px;padding-top:24px;
+  border-top:1px solid var(--line);
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);
+  flex-wrap:wrap;
+}
+.story-meta span strong{color:var(--ink);display:block;font-size:18px;font-weight:800;font-family:'Inter',sans-serif}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.price-card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:32px;
+}
+.price-card.featured{border-color:var(--accent);border-width:2px;position:relative}
+.price-card.featured::after{
+  content:"recommended";position:absolute;top:-12px;right:24px;
+  background:var(--accent);color:#fff;
+  padding:4px 12px;border-radius:999px;
+  font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;
+}
+.price-tier{font-size:14px;color:var(--muted);margin:0 0 6px;text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+.price-amount{font-size:36px;font-weight:800;margin:0 0 4px;letter-spacing:-0.02em}
+.price-amount small{font-size:14px;color:var(--muted);font-weight:500}
+.price-note{font-size:13px;color:var(--muted);margin:0 0 20px}
+.price-list{list-style:none;padding:0;margin:0;font-size:14px}
+.price-list li{padding:8px 0;color:var(--ink)}
+.price-list li::before{content:"✓ ";color:var(--accent);font-weight:700;margin-right:6px}
+
+/* FINAL CTA */
+.final-cta{text-align:center;padding:80px 0}
+.final-cta h2{margin-bottom:12px}
+.final-cta p{color:var(--muted);margin:0 0 28px;font-size:1.05rem}
+
+/* FOOTER */
+footer{
+  padding:40px 0 60px;
+  font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+footer a{color:var(--accent)}
+
+@media(max-width:720px){
+  .problem-grid,.features-grid,.pricing-grid{grid-template-columns:1fr}
+  section{padding:56px 0}
+  .story{padding:28px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../icons/cardmate.png" alt="CardMate">
+      <span>CardMate</span>
+    </a>
+    <a href="/" class="nav-back">back to pawel</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-icon">
+      <img src="../icons/cardmate.png" alt="CardMate app icon">
+    </div>
+    <h1>Loyalty cards.<br>Without the plastic.</h1>
+    <p class="hero-tag">All your loyalty cards in one offline place. Scan once, show the barcode at checkout, done.</p>
+    <div class="cta-row">
+      <a href="https://apps.apple.com/app/id787144602" class="btn-primary">Get it on the App Store</a>
+      <a href="#story" class="btn-secondary">Read the story</a>
+    </div>
+    <div class="hero-badges">
+      <span>No account</span>
+      <span>No ads</span>
+      <span>Works offline</span>
+    </div>
+  </div>
+</header>
+
+<section id="problem">
+  <div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>You brought the phone. The deal walked away anyway.</h2>
+    <p class="lead">Loyalty card apps fail you at the exact moment you need them most.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">🔒</div>
+        <h3 class="problem-title">Logged out at the register</h3>
+        <p class="problem-desc">The retailer's app forgot who you are. Log in again while the queue builds behind you.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📶</div>
+        <h3 class="problem-title">The store WiFi is dead</h3>
+        <p class="problem-desc">The app needs internet to show a barcode. The store doesn't have it. Deal gone.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💳</div>
+        <h3 class="problem-title">Plastic left at home</h3>
+        <p class="problem-desc">Every store wants a different card. Your wallet weighs more than your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solution">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Three seconds at any checkout.</h2>
+    <p class="lead">Everything runs on your phone. No account, no ads, no network.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3 class="step-title">Scan the card once</h3>
+          <p class="step-desc">Point the camera at the barcode. Or type the number manually if the plastic is faded. Pick an icon and a color so you spot it instantly later.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3 class="step-title">Open at checkout</h3>
+          <p class="step-desc">Tap the card. The barcode fills the screen. Brightness turns up automatically so the scanner reads it on the first try, even in a bright store.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3 class="step-title">Done. Walk out with the deal.</h3>
+          <p class="step-desc">No internet needed. No login screen. No "we couldn't verify your card." The barcode is the barcode.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <p class="eyebrow">What's inside</p>
+    <h2>Everything the plastic card does. Nothing it doesn't.</h2>
+    <div class="features-grid">
+      <div class="feature"><h3 class="feature-title">Fully offline</h3><p class="feature-desc">Shows cards without any internet. The app does not need your WiFi, 5G, or anything else.</p></div>
+      <div class="feature"><h3 class="feature-title">No account, ever</h3><p class="feature-desc">Install, add cards, use. No signup, no email, no "verify your phone number."</p></div>
+      <div class="feature"><h3 class="feature-title">Zero ads</h3><p class="feature-desc">No ads at the free tier. No ads at the paid tier. Just your cards.</p></div>
+      <div class="feature"><h3 class="feature-title">Scan or type</h3><p class="feature-desc">Scan the barcode with your camera, or type the number if the card is faded.</p></div>
+      <div class="feature"><h3 class="feature-title">34 icons, 15 colors</h3><p class="feature-desc">Make each card recognizable at a glance. No more scrolling past 15 identical gray tiles.</p></div>
+      <div class="feature"><h3 class="feature-title">Auto brightness</h3><p class="feature-desc">Opening a card jumps the screen to full brightness so the scanner reads it the first time.</p></div>
+      <div class="feature"><h3 class="feature-title">Face ID lock</h3><p class="feature-desc">Keep your card list private. Only you unlock the app.</p></div>
+      <div class="feature"><h3 class="feature-title">Home screen widget</h3><p class="feature-desc">Pin your most used card to the home screen. One tap, barcode on screen.</p></div>
+      <div class="feature"><h3 class="feature-title">Optional iCloud backup</h3><p class="feature-desc">Reinstalling or switching iPhones? Flip the backup toggle. Nobody else sees the data.</p></div>
+      <div class="feature"><h3 class="feature-title">6 languages</h3><p class="feature-desc">English, Polish, Italian, German, Dutch, Spanish. Auto picks the one your phone uses.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <p class="eyebrow">The story</p>
+    <h2>Shipped in 2014. Rebuilt in 2026.</h2>
+    <div class="story">
+      <p>I shipped the first version of CardMate in 2014. Objective C, local SQLite, no backend, no account. The idea was simple: I was tired of my wallet bursting with plastic from CVS, Target, Starbucks, and a dozen more. So I built the thing I wanted to use myself.</p>
+      <p>For the next three years it ticked along at roughly 150 downloads a day. In the summer of 2017 something happened and downloads spiked briefly to a peak of 2,000 that month. I still have no idea what caused it. Then the baseline came back. By the end of that run the app had collected about <strong>6,760 total downloads</strong> from users in the US, UK, and Spain.</p>
+      <p>In 2018 I walked away. Not because the app was broken. I got pulled into Agile coaching, building processes, training teams, consulting. The app sat untouched. For nearly 8 years it was dead code on the App Store, earning nothing, aging quietly as iOS evolved around it.</p>
+      <p>I came back in 2026 because I missed building useful things for actual people. The old Objective C code is still in the archive folder, kept as a reference. The architecture choices from 2014 held up surprisingly well (offline first, no backend, no account). The implementation needed a full rewrite to meet 2026 expectations.</p>
+      <p><strong>Current stack:</strong> Expo SDK 57 + React Native, local SQLite, optional iCloud backup, Face ID lock, Adapty for the paywall, StoreKit 2, home screen widget, alternate app icons, dark mode. UI localized in six languages.</p>
+      <div class="story-meta">
+        <span><strong>2014</strong>first shipped</span>
+        <span><strong>2018</strong>walked away</span>
+        <span><strong>2026</strong>back from scratch</span>
+        <span><strong>~6,760</strong>lifetime downloads</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Free. Or $6.99 once.</h2>
+    <p class="lead">No subscription. Ever.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <p class="price-tier">Free</p>
+        <p class="price-amount">$0</p>
+        <p class="price-note">For most people this is enough.</p>
+        <ul class="price-list">
+          <li>Up to 3 loyalty cards</li>
+          <li>Scan or type barcodes</li>
+          <li>34 icons, 15 colors</li>
+          <li>Fully offline, no account</li>
+          <li>Auto brightness at checkout</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <p class="price-tier">Premium</p>
+        <p class="price-amount">$6.99 <small>one time</small></p>
+        <p class="price-note">Not a subscription. You pay once, you own it.</p>
+        <ul class="price-list">
+          <li>Unlimited cards</li>
+          <li>Face ID lock</li>
+          <li>Home screen widget</li>
+          <li>iCloud backup</li>
+          <li>Usage statistics</li>
+          <li>Sort by usage</li>
+          <li>Import and export</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>Ready to ditch the plastic?</h2>
+    <p>Free download. 3 cards on the house. Decide later if you want the rest.</p>
+    <div class="cta-row">
+      <a href="https://apps.apple.com/app/id787144602" class="btn-primary">Get CardMate on the App Store</a>
+    </div>
+    <div class="hero-badges">
+      <span>iOS 16.4 or later</span>
+      <span>iPhone only</span>
+      <span>~15 MB</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built by <a href="/">Pawel Lewinski</a>. © 2026.
+  </div>
+</footer>
+
+</body>
+</html>

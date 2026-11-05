@@ -269,7 +269,8 @@ h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacin
 }
 
 /* ========== Rhythm (what's a micro exercise) ========== */
-.rhythm { background: var(--cream); padding: 100px 24px 60px; text-align: left; }
+.rhythm { background: var(--cream); padding: 100px 24px 0; text-align: left; }
+.rhythm + .how { padding-top: 60px; }
 .rhythm-inner { max-width: 900px; margin: 0 auto; }
 .rhythm-inner > h2 { margin-bottom: 32px; }
 .rhythm-inner > h2 em { font-style: normal; color: var(--orange); }

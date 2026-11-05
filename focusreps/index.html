@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#f5f3ef" />
+<meta name="color-scheme" content="light" />
+
+<title>FocusReps · Focus. Then push-ups. iPhone camera counts your reps.</title>
+<meta name="description" content="Pomodoro© focus timer for iPhone. Work 25 minutes, then the camera counts 10 push-ups in your break. On-device. No account. No excuses." />
+<link rel="canonical" href="https://focusreps.app/" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="FocusReps" />
+<meta property="og:title" content="FocusReps · Focus. Then push-ups." />
+<meta property="og:description" content="25 min work. 10 push-ups. Your camera counts. On-device." />
+<meta property="og:url" content="https://focusreps.app/" />
+<meta property="og:image" content="https://focusreps.app/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="FocusReps · Focus. Then push-ups." />
+<meta name="twitter:description" content="25 min work. 10 push-ups. Your camera counts." />
+<meta name="twitter:image" content="https://focusreps.app/og.png" />
+
+<link rel="icon" type="image/png" href="app-icon.png" />
+<link rel="apple-touch-icon" href="app-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "FocusReps",
+  "operatingSystem": "iOS 17",
+  "applicationCategory": "ProductivityApplication",
+  "applicationSubCategory": "HealthApplication",
+  "description": "Pomodoro© focus timer with a camera-based push-up counter. Work in focused blocks, move in the breaks.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://focusreps.app/",
+  "image": "https://focusreps.app/og.png"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FocusReps",
+  "url": "https://focusreps.app/",
+  "logo": "https://focusreps.app/og.png",
+  "sameAs": []
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the camera actually count or is this fake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Real. On-device pose detection watches your form and ticks a rep only when your elbows go below ninety degrees and come back up. Shallow reps do not count. Nervous tics do not count."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the video go?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nowhere. Nothing uploads, nothing saves, no account exists. The camera does one job for your exercise and shuts off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What exercises can I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Push-ups for this version. If you like it I will add next exercises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I skip the break?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. One tap. Life happens. Skipping does not break your focus streak, it just does not count toward reps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bad lighting. Does it work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Needs enough light to see your joints. A normally lit room is fine. A dark bedroom with one lamp will be unreliable. The app warns you before you start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I cheat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your call. We just count what the camera sees. If a fake push-up means something to you, go for it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html" aria-label="FocusReps home">
+      <img class="brand-icon" src="app-icon.png" alt="" width="36" height="36" />
+      <span class="brand-name">FocusReps</span>
+    </a>
+    <ul class="nav-list">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#tools">Free Tools</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav-cta" href="#waitlist">Join waitlist</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="hero-title">Focus.<br>Then <em>push-ups.</em></h1>
+        <p class="hero-sub">
+          Focus on your work and make micro exercise in the break. Your camera will support you.
+        </p>
+        <div class="cta-row" id="waitlist">
+          <form class="waitlist" data-waitlist novalidate>
+            <div class="wl-field">
+              <label class="visually-hidden" for="wl-name-hero">Name</label>
+              <input id="wl-name-hero" name="name" type="text" placeholder="Your name" autocomplete="given-name" required />
+            </div>
+            <div class="wl-field">
+              <label class="visually-hidden" for="wl-email-hero">Email</label>
+              <input id="wl-email-hero" name="email" type="email" placeholder="your@email.com" autocomplete="email" required />
+            </div>
+            <button type="submit">Join waitlist</button>
+            <p class="wl-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <p class="cta-micro">iPhone only · on-device · no account</p>
+      </div>
+
+      <div class="phone-visual" aria-hidden="true">
+        <div class="phone-frame">
+          <video class="phone-video" autoplay muted loop playsinline preload="auto" poster="app-screen-lockin.png">
+            <source src="app-video-2.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pain" aria-labelledby="pain-title">
+    <div class="pain-inner">
+      <h2 id="pain-title">You sit eight hours a day. Your breaks turn into <em>social media.</em></h2>
+      <p>
+        Pomodoro© apps leave the break empty, so you scroll. Rep counters live in a different app you forget to open. By 6 PM nothing moved. FocusReps makes the break the exercise, and the camera makes sure it actually happened.
+      </p>
+    </div>
+  </section>
+
+  <section class="rhythm" id="micro" aria-labelledby="rhythm-title">
+    <div class="rhythm-inner">
+      <h2 id="rhythm-title">What's a micro exercise?</h2>
+      <p>
+        A short burst of movement that fits inside a normal work break. Ten pushups. Ninety seconds. No gym, no change of clothes, no app to open. Sports scientists call these <strong>exercise snacks</strong>.
+      </p>
+      <p>
+        A 2022 review by Islam, Gibala and Little in <em>Exercise and Sport Sciences Reviews</em> defines them as isolated bouts of vigorous exercise under one minute, repeated through the day. In a 2019 study by Jenkins et al. in <em>Applied Physiology, Nutrition, and Metabolism</em>, sedentary adults doing three short stair climbing bouts a day, three days a week, improved VO<sub>2</sub> peak by about five percent in six weeks. The pattern interrupts the metabolic cost of prolonged sitting. You do not need a workout. You need the body to stop being still.
+      </p>
+
+      <div class="rhythm-timeline" role="img" aria-label="Work rhythm: focus block, then break with pushups, repeated.">
+        <div class="rhythm-block is-focus">
+          <span class="rb-label">Focus</span>
+          <span class="rb-meta">25 min</span>
+        </div>
+        <div class="rhythm-block is-break">
+          <span class="rb-label">Break</span>
+          <span class="rb-meta">Pushups</span>
+        </div>
+        <div class="rhythm-block is-focus">
+          <span class="rb-label">Focus</span>
+          <span class="rb-meta">25 min</span>
+        </div>
+        <div class="rhythm-block is-break">
+          <span class="rb-label">Break</span>
+          <span class="rb-meta">Pushups</span>
+        </div>
+        <div class="rhythm-block is-dots" aria-hidden="true">
+          <span class="rb-label">· · ·</span>
+        </div>
+      </div>
+      <p class="rhythm-axis" aria-hidden="true">Time →</p>
+
+      <p class="rhythm-sum">
+        <strong>The math is on your side.</strong> Ten pushups per break. Four breaks in a workday. That is forty pushups you did not do yesterday. Two hundred a workweek. Eight hundred a month. Nine thousand six hundred in a year. You will not feel it on Tuesday. You will feel it in October. Nothing changed except the break.
+      </p>
+    </div>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-title">
+    <header class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2 id="how-title">Four steps. Then you work.</h2>
+    </header>
+    <ol class="steps">
+      <li>
+        <span class="step-num">01 /</span>
+        <div>
+          <h3>Pick a session.</h3>
+          <p>Default is 25 and 5 with 10 push-ups. Change it or just hit start.</p>
+        </div>
+        <span class="step-tag">25 min · push-ups</span>
+      </li>
+      <li>
+        <span class="step-num">02 /</span>
+        <div>
+          <h3>Phone face down.</h3>
+          <p>Timer runs in the background. No notifications. No streak pressure.</p>
+        </div>
+        <span class="step-tag">camera off, you off</span>
+      </li>
+      <li>
+        <span class="step-num">03 /</span>
+        <div>
+          <h3>Timer rings. Drop and count.</h3>
+          <p>Prop the phone. Step in frame. The camera counts every rep that goes deep enough.</p>
+        </div>
+        <span class="step-tag">10 reps · verified</span>
+      </li>
+      <li>
+        <span class="step-num">04 /</span>
+        <div>
+          <h3>Back to focus.</h3>
+          <p>When you have your push-ups done, rest and relax during the break so you get strength for the next focus session.</p>
+        </div>
+        <span class="step-tag">next session queued</span>
+      </li>
+    </ol>
+  </section>
+
+  <section class="showcase" id="showcase" aria-labelledby="showcase-title">
+    <header class="section-head">
+      <p class="eyebrow">What you get</p>
+      <h2 id="showcase-title">Focus. Move. <em>See it add up.</em></h2>
+    </header>
+    <div class="showcase-grid">
+      <figure class="showcase-item">
+        <div class="showcase-phone">
+          <img src="app-screen-1.png" alt="Home screen with session setup, presets and start button" />
+        </div>
+        <figcaption class="showcase-caption">
+          <strong>01 · Set your pace</strong>
+          25 or 50 minutes. 10 push-ups.
+        </figcaption>
+      </figure>
+      <figure class="showcase-item">
+        <div class="showcase-phone">
+          <img src="app-screen-2.png" alt="Focus timer counting down with Lock In label" />
+        </div>
+        <figcaption class="showcase-caption">
+          <strong>02 · Get deep work</strong>
+          Phone face down. Timer in charge.
+        </figcaption>
+      </figure>
+      <figure class="showcase-item">
+        <div class="showcase-phone">
+          <img src="app-screen-5.png" alt="Active break with camera pose detection counting push-ups" />
+        </div>
+        <figcaption class="showcase-caption">
+          <strong>03 · Move, don't scroll</strong>
+          Camera counts every real rep.
+        </figcaption>
+      </figure>
+      <figure class="showcase-item">
+        <div class="showcase-phone">
+          <img src="app-screen-3.png" alt="Stats screen with weekly push-up count and focus time" />
+        </div>
+        <figcaption class="showcase-caption">
+          <strong>04 · See your week</strong>
+          Reps added up. Focus time logged.
+        </figcaption>
+      </figure>
+      <figure class="showcase-item">
+        <div class="showcase-phone">
+          <img src="app-screen-4.png" alt="Global ranking leaderboard via Game Center" />
+        </div>
+        <figcaption class="showcase-caption">
+          <strong>05 · Climb the rank</strong>
+          Compete globally via Game Center.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-labelledby="features-title">
+    <header class="section-head">
+      <p class="eyebrow">What it is</p>
+      <h2 id="features-title">Everything the break needs. <br>Nothing more.</h2>
+    </header>
+    <div class="feature-grid">
+      <article class="feature">
+        <span class="feature-num">01</span>
+        <h3>Camera rep counter</h3>
+        <p>On-device pose detection counts push-ups in real time. Shallow reps do not count. Nervous tics do not count.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-num">02</span>
+        <h3>Pomodoro© that respects flow</h3>
+        <p>Default 25 and 5. Fully configurable. Pause without penalty when the meeting starts.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-num">03</span>
+        <h3>Daily and weekly stats</h3>
+        <p>Focus blocks closed. Reps added up. One honest number per week, so sitting all day feels less wasted.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-num">04</span>
+        <h3>HealthKit sync</h3>
+        <p>Each active break logs a workout with reps and estimated calories. Opt-in. Off by default.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-num">05</span>
+        <h3>Private by design</h3>
+        <p>Nothing leaves the phone. No account, no login, no video stored. Camera runs for the break and dies.</p>
+      </article>
+      <article class="feature">
+        <span class="feature-num">06</span>
+        <h3>Skip without shame</h3>
+        <p>One tap to skip the break. Life happens. Streaks track focus, not perfection.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="tools-teaser" id="tools" aria-labelledby="tools-teaser-title">
+    <header class="section-head">
+      <p class="eyebrow">Free tools</p>
+      <h2 id="tools-teaser-title">Free materials to help your focus and your reps.</h2>
+    </header>
+    <div class="tools-grid">
+      <a class="tool-card" href="tools/pomodoro-adhd-planner/index.html">
+        <span class="tool-tag">01 · Printable PDF</span>
+        <h3>Pomodoro© ADHD planner</h3>
+        <p>One page. Four Pomodoros©. A distraction log that stops you from losing the thread at minute 7. Free PDF, no email.</p>
+        <span class="tool-cta">Download →</span>
+      </a>
+      <a class="tool-card" href="tools/30-day-pushup-challenge/index.html">
+        <span class="tool-tag">02 · Printable PDF</span>
+        <h3>30 day pushup challenge grid</h3>
+        <p>One page. Thirty days. Start at 10 reps, finish at 50. Break the daily count into your work breaks. Print one, print ten. Free PDF, no email.</p>
+        <span class="tool-cta">Download →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="stats" id="stats" aria-labelledby="stats-title">
+    <div class="stats-inner">
+      <header class="section-head" style="text-align:left;margin:0 auto 24px;max-width:100%;">
+        <p class="eyebrow">The receipt</p>
+        <h2 id="stats-title">The whole thing in numbers.</h2>
+      </header>
+      <div class="stats-head">
+        <span>Receipt</span>
+        <span>FocusReps · 2026</span>
+      </div>
+      <ul class="stat-rows">
+        <li><span class="stat-key">Default cycle</span><span class="stat-val"><em>25</em> / <em>5</em> min</span></li>
+        <li><span class="stat-key">Active break</span><span class="stat-val">~<em>90</em> sec</span></li>
+        <li><span class="stat-key">Realistic reps per workday</span><span class="stat-val"><em>50</em>+</span></li>
+        <li><span class="stat-key">Reps per month at that rate</span><span class="stat-val"><em>1,000</em>+</span></li>
+        <li><span class="stat-key">Data leaving your phone</span><span class="stat-val"><em>0</em> %</span></li>
+        <li><span class="stat-key">Account required</span><span class="stat-val">none</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <header class="section-head">
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-title">What people actually ask.</h2>
+    </header>
+    <div class="faq-list">
+      <details>
+        <summary>Does the camera actually count or is this fake?</summary>
+        <p>Real. On-device pose detection watches your form and ticks a rep only when your elbows go below ninety degrees and come back up. Shallow reps do not count. Nervous tics do not count.</p>
+      </details>
+      <details>
+        <summary>Where does the video go?</summary>
+        <p>Nowhere. Nothing uploads, nothing saves, no account exists. The camera does one job for your exercise and shuts off.</p>
+      </details>
+      <details>
+        <summary>What exercises can I do?</summary>
+        <p>Push-ups for this version. If you like it I will add next exercises.</p>
+      </details>
+      <details>
+        <summary>Can I skip the break?</summary>
+        <p>Yes. One tap. Life happens. Skipping does not break your focus streak, it just does not count toward reps.</p>
+      </details>
+      <details>
+        <summary>Bad lighting. Does it work?</summary>
+        <p>Needs enough light to see your joints. A normally lit room is fine. A dark bedroom with one lamp will be unreliable. The app warns you before you start.</p>
+      </details>
+      <details>
+        <summary>What if I cheat?</summary>
+        <p>Your call. We just count what the camera sees. If a fake push-up means something to you, go for it.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final-cta" id="download" aria-labelledby="dl-title">
+    <h2 id="dl-title">Stop sitting. Start <em>locking in.</em></h2>
+    <p>Join the waitlist. First 50 testers get lifetime Pro.</p>
+    <div class="final-cta-row">
+      <form class="waitlist" data-waitlist novalidate>
+        <div class="wl-field">
+          <label class="visually-hidden" for="wl-name-final">Name</label>
+          <input id="wl-name-final" name="name" type="text" placeholder="Your name" autocomplete="given-name" required />
+        </div>
+        <div class="wl-field">
+          <label class="visually-hidden" for="wl-email-final">Email</label>
+          <input id="wl-email-final" name="email" type="email" placeholder="your@email.com" autocomplete="email" required />
+        </div>
+        <button type="submit">Join waitlist</button>
+        <p class="wl-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-icon" src="app-icon.png" alt="" width="28" height="28" style="width:28px;height:28px" />
+      <span class="brand-name">FocusReps</span>
+    </a>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#how">How</a></li>
+        <li><a href="#tools">Free Tools</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="mailto:hello@focusreps.app">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="copy">© 2026 FocusReps</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSe_aKbn0mp4SOPrQbG-kjA4OW1ZfELICnvFQA2vUutSlAQRjQ/formResponse";
+  var ENTRY_NAME = "entry.155207820";
+  var ENTRY_EMAIL = "entry.155826540";
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function handle(form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var status = form.querySelector(".wl-status");
+      var button = form.querySelector("button[type=submit]");
+      var name = form.querySelector("input[name=name]").value.trim();
+      var email = form.querySelector("input[name=email]").value.trim();
+
+      status.classList.remove("is-ok", "is-err");
+
+      if (!name) { status.textContent = "Please enter your name."; status.classList.add("is-err"); return; }
+      if (!EMAIL_RE.test(email)) { status.textContent = "Please enter a valid email."; status.classList.add("is-err"); return; }
+
+      button.disabled = true;
+      status.textContent = "Sending…";
+
+      var data = new FormData();
+      data.append(ENTRY_NAME, name);
+      data.append(ENTRY_EMAIL, email);
+
+      fetch(FORM_ACTION, { method: "POST", mode: "no-cors", body: data })
+        .then(function () {
+          form.reset();
+          status.textContent = "Thanks. You're on the list.";
+          status.classList.add("is-ok");
+          button.disabled = false;
+        })
+        .catch(function () {
+          status.textContent = "Something went wrong. Please try again.";
+          status.classList.add("is-err");
+          button.disabled = false;
+        });
+    });
+  }
+
+  document.querySelectorAll("form[data-waitlist]").forEach(handle);
+})();
+</script>
+
+</body>
+</html>

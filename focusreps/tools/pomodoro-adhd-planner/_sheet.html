@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Pomodoro ADHD Planner · FocusReps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f3ef;
+    --ink: #0f0f0f;
+    --ink-2: #333;
+    --ink-3: #777;
+    --line: #bdb6a8;
+    --orange: #f27022;
+    --orange-dark: #c7571a;
+    --sans: "Space Grotesk", -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 210mm; height: 297mm;
+    padding: 10mm 13mm 8mm;
+    display: flex; flex-direction: column;
+    page-break-after: avoid;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+  }
+  .head .eyebrow {
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    color: var(--orange-dark); letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .head h1 {
+    font-family: var(--sans); font-size: 34px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: -0.03em;
+    line-height: 0.95;
+    margin: 0;
+  }
+  .head h1 em { font-style: normal; color: var(--orange); }
+  .brand {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 10px; font-weight: 700;
+    color: var(--ink); text-transform: uppercase; letter-spacing: 0.14em;
+  }
+  .brand-dot {
+    width: 18px; height: 18px; background: var(--orange);
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  /* Meta row */
+  .meta {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono); font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-3);
+  }
+  .meta .field { display: flex; align-items: baseline; gap: 8px; }
+  .meta .lbl { color: var(--orange-dark); font-weight: 700; }
+  .meta .line {
+    flex: 1; border-bottom: 1px solid var(--line); height: 12px;
+  }
+
+  /* Section */
+  .section {
+    margin-top: 10px;
+  }
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 4px;
+  }
+  .section-head h2 {
+    font-family: var(--sans); font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.03em;
+    margin: 0; color: var(--ink);
+  }
+  .section-head .n {
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    color: var(--orange-dark); letter-spacing: 0.14em;
+  }
+  .section-head .hint {
+    font-family: var(--mono); font-size: 8px;
+    color: var(--ink-3); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Tasks */
+  .task-list {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 4px 10px;
+    padding: 4px 0 2px;
+  }
+  .task-list .slot {
+    font-family: var(--mono); font-size: 9px; font-weight: 700;
+    color: var(--orange-dark); letter-spacing: 0.14em;
+    text-transform: uppercase; align-self: end;
+    padding-bottom: 3px;
+  }
+  .task-list .line {
+    border-bottom: 1px solid var(--line); height: 16px;
+  }
+
+  /* Cycle tracker */
+  .cycles {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 4px 0;
+  }
+  .cycle-cell {
+    background: #fff;
+    border: 1.5px solid var(--ink);
+    aspect-ratio: 1.6 / 1;
+    padding: 6px 8px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cycle-cell .num {
+    font-family: var(--sans); font-size: 22px; font-weight: 700;
+    color: var(--ink); line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .cycle-cell .lbl {
+    font-family: var(--mono); font-size: 7px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-3);
+    margin-top: 2px;
+  }
+  .cycle-cell .box {
+    width: 12px; height: 12px;
+    border: 1.5px solid var(--ink);
+    align-self: flex-end;
+  }
+
+  .break-note {
+    font-family: var(--mono); font-size: 8px;
+    color: var(--ink-3); letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  /* Session log */
+  .log {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2px;
+  }
+  .log th {
+    text-align: left;
+    font-family: var(--mono); font-size: 8px; font-weight: 700;
+    color: var(--orange-dark); letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 8px 4px 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  .log td {
+    border-bottom: 1px solid var(--line);
+    height: 16px;
+    padding: 0 8px 0 0;
+    font-family: var(--mono); font-size: 9px;
+    color: var(--ink);
+  }
+  .log td.n {
+    font-weight: 700; color: var(--orange-dark);
+    width: 18px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Distraction & notes */
+  .lines {
+    padding: 4px 0 0;
+  }
+  .lines .l {
+    display: block; border-bottom: 1px solid var(--line); height: 22px;
+    margin-bottom: 2px;
+  }
+
+  /* Reflection */
+  .reflection {
+    display: grid; grid-template-columns: 1fr; gap: 8px;
+    margin-top: 6px;
+  }
+  .reflection .r {
+    padding: 10px 12px 8px;
+    background: #fff;
+    border-left: 3px solid var(--orange);
+  }
+  .reflection .q {
+    font-family: var(--mono); font-size: 8px; font-weight: 700;
+    color: var(--ink); letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+  .reflection .ans {
+    display: block; border-bottom: 1px solid var(--line); height: 22px;
+  }
+  .reflection .ans + .ans { margin-top: 4px; }
+
+  /* Footer */
+  .foot {
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 2px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 8px; font-weight: 700;
+    color: var(--ink); letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .foot .ic {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .foot .ic-box {
+    width: 12px; height: 12px; background: var(--orange); border-radius: 3px;
+  }
+  .foot em {
+    font-style: normal; color: var(--orange-dark);
+  }
+
+  /* Two-column mid */
+  .mid-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <header class="head">
+    <div>
+      <p class="eyebrow">Focus rep · one page · four pomodoros</p>
+      <h1>Pomodoro ADHD <em>Planner.</em></h1>
+    </div>
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>FocusReps</span>
+    </div>
+  </header>
+
+  <div class="meta">
+    <div class="field"><span class="lbl">Date</span><span class="line"></span></div>
+    <div class="field"><span class="lbl">Mood 1-10</span><span class="line"></span></div>
+    <div class="field"><span class="lbl">Cycle</span><span>25 / 5 min</span></div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="n">01 /</span> &nbsp; Today's task</h2>
+      <span class="hint">Three slots. Not ten.</span>
+    </div>
+    <div class="task-list">
+      <span class="slot">A /</span><span class="line"></span>
+      <span class="slot">B /</span><span class="line"></span>
+      <span class="slot">C /</span><span class="line"></span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="n">02 /</span> &nbsp; Pomodoro cycles</h2>
+      <span class="hint">Four sessions. Cross each off.</span>
+    </div>
+    <div class="cycles">
+      <div class="cycle-cell">
+        <div>
+          <div class="num">01</div>
+          <div class="lbl">Session</div>
+        </div>
+        <div class="box"></div>
+      </div>
+      <div class="cycle-cell">
+        <div>
+          <div class="num">02</div>
+          <div class="lbl">Session</div>
+        </div>
+        <div class="box"></div>
+      </div>
+      <div class="cycle-cell">
+        <div>
+          <div class="num">03</div>
+          <div class="lbl">Session</div>
+        </div>
+        <div class="box"></div>
+      </div>
+      <div class="cycle-cell">
+        <div>
+          <div class="num">04</div>
+          <div class="lbl">Session</div>
+        </div>
+        <div class="box"></div>
+      </div>
+    </div>
+    <p class="break-note">After session 04 take a long break. 15 to 30 minutes. Walk, water, food. Not scroll.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="n">03 /</span> &nbsp; Session log</h2>
+      <span class="hint">Which task. What time. Was it done.</span>
+    </div>
+    <table class="log">
+      <thead>
+        <tr>
+          <th style="width:18px">#</th>
+          <th style="width:40%">Task</th>
+          <th style="width:14%">Start</th>
+          <th style="width:14%">End</th>
+          <th style="width:10%">Done</th>
+          <th>Break</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="n">01</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="n">02</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="n">03</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="n">04</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="mid-grid">
+    <section class="section">
+      <div class="section-head">
+        <h2><span class="n">04 /</span> &nbsp; Distraction log</h2>
+      </div>
+      <div class="lines">
+        <span class="l"></span><span class="l"></span><span class="l"></span><span class="l"></span>
+        <span class="l"></span><span class="l"></span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2><span class="n">05 /</span> &nbsp; Notes</h2>
+      </div>
+      <div class="lines">
+        <span class="l"></span><span class="l"></span><span class="l"></span><span class="l"></span>
+        <span class="l"></span><span class="l"></span>
+      </div>
+    </section>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="n">06 /</span> &nbsp; End of day reflection</h2>
+      <span class="hint">Three lines. Thirty seconds.</span>
+    </div>
+    <div class="reflection">
+      <div class="r">
+        <p class="q">What got done.</p>
+        <span class="ans"></span>
+        <span class="ans"></span>
+      </div>
+      <div class="r">
+        <p class="q">What got in the way.</p>
+        <span class="ans"></span>
+        <span class="ans"></span>
+      </div>
+      <div class="r">
+        <p class="q">Next first step.</p>
+        <span class="ans"></span>
+        <span class="ans"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="ic">
+      <span class="ic-box"></span>
+      <span>focusreps.app · <em>No excuses.</em></span>
+    </div>
+    <div>Camera counts your push-ups. iPhone.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>

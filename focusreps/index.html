@@ -35,6 +35,18 @@
 
 <link rel="stylesheet" href="styles.css" />
 
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_x9aujhwB7UGrY7GUKtDUT2NqDMefkAZk86peGeGWo5u2', {
+  api_host: 'https://eu.posthog.com',
+  person_profiles: 'identified_only',
+  capture_pageview: false,
+  autocapture: false
+});
+posthog.register({ source: 'web.focusreps' });
+posthog.capture('web.focusreps.pageview');
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -126,7 +138,7 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
+<header class="site-header" hidden>
   <nav class="nav" aria-label="Primary">
     <a class="brand" href="index.html" aria-label="FocusReps home">
       <img class="brand-icon" src="app-icon.png" alt="" width="36" height="36" />
@@ -143,19 +155,19 @@
 
 <main id="main">
 
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" aria-labelledby="hero-title" style="border-bottom:none;min-height:100vh;display:flex;align-items:center;">
     <div class="hero-grid">
       <div class="hero-copy">
+        <a class="brand" href="index.html" aria-label="FocusReps home" style="margin-bottom:24px;">
+          <img class="brand-icon" src="app-icon.png" alt="" width="36" height="36" />
+          <span class="brand-name">FocusReps</span>
+        </a>
         <h1 id="hero-title" class="hero-title">Focus.<br>Then <em>push-ups.</em></h1>
         <p class="hero-sub">
           Focus on your work and make micro exercise in the break. Your camera will support you.
         </p>
         <div class="cta-row" id="waitlist">
           <form class="waitlist" data-waitlist novalidate>
-            <div class="wl-field">
-              <label class="visually-hidden" for="wl-name-hero">Name</label>
-              <input id="wl-name-hero" name="name" type="text" placeholder="Your name" autocomplete="given-name" required />
-            </div>
             <div class="wl-field">
               <label class="visually-hidden" for="wl-email-hero">Email</label>
               <input id="wl-email-hero" name="email" type="email" placeholder="your@email.com" autocomplete="email" required />
@@ -164,7 +176,6 @@
             <p class="wl-status" role="status" aria-live="polite"></p>
           </form>
         </div>
-        <p class="cta-micro">iPhone only · on-device · no account</p>
       </div>
 
       <div class="phone-visual" aria-hidden="true">
@@ -177,7 +188,7 @@
     </div>
   </section>
 
-  <section class="pain" aria-labelledby="pain-title">
+  <section class="pain" aria-labelledby="pain-title" hidden>
     <div class="pain-inner">
       <h2 id="pain-title">You sit eight hours a day. Your breaks turn into <em>social media.</em></h2>
       <p>
@@ -186,7 +197,7 @@
     </div>
   </section>
 
-  <section class="rhythm" id="micro" aria-labelledby="rhythm-title">
+  <section class="rhythm" id="micro" aria-labelledby="rhythm-title" hidden>
     <div class="rhythm-inner">
       <h2 id="rhythm-title">What's a micro exercise?</h2>
       <p>
@@ -225,7 +236,7 @@
     </div>
   </section>
 
-  <section class="how" id="how" aria-labelledby="how-title">
+  <section class="how" id="how" aria-labelledby="how-title" hidden>
     <header class="section-head">
       <p class="eyebrow">How it works</p>
       <h2 id="how-title">Four steps. Then you work.</h2>
@@ -266,7 +277,7 @@
     </ol>
   </section>
 
-  <section class="showcase" id="showcase" aria-labelledby="showcase-title">
+  <section class="showcase" id="showcase" aria-labelledby="showcase-title" hidden>
     <header class="section-head">
       <p class="eyebrow">What you get</p>
       <h2 id="showcase-title">Focus. Move. <em>See it add up.</em></h2>
@@ -320,7 +331,7 @@
     </div>
   </section>
 
-  <section class="features" id="features" aria-labelledby="features-title">
+  <section class="features" id="features" aria-labelledby="features-title" hidden>
     <header class="section-head">
       <p class="eyebrow">What it is</p>
       <h2 id="features-title">Everything the break needs. <br>Nothing more.</h2>
@@ -359,7 +370,7 @@
     </div>
   </section>
 
-  <section class="tools-teaser" id="tools" aria-labelledby="tools-teaser-title">
+  <section class="tools-teaser" id="tools" aria-labelledby="tools-teaser-title" hidden>
     <header class="section-head">
       <p class="eyebrow">Free tools</p>
       <h2 id="tools-teaser-title">Free materials to help your focus and your reps.</h2>
@@ -380,7 +391,7 @@
     </div>
   </section>
 
-  <section class="stats" id="stats" aria-labelledby="stats-title">
+  <section class="stats" id="stats" aria-labelledby="stats-title" hidden>
     <div class="stats-inner">
       <header class="section-head" style="text-align:left;margin:0 auto 24px;max-width:100%;">
         <p class="eyebrow">The receipt</p>
@@ -401,7 +412,7 @@
     </div>
   </section>
 
-  <section class="faq" id="faq" aria-labelledby="faq-title">
+  <section class="faq" id="faq" aria-labelledby="faq-title" hidden>
     <header class="section-head">
       <p class="eyebrow">FAQ</p>
       <h2 id="faq-title">What people actually ask.</h2>
@@ -434,7 +445,7 @@
     </div>
   </section>
 
-  <section class="final-cta" id="download" aria-labelledby="dl-title">
+  <section class="final-cta" id="download" aria-labelledby="dl-title" hidden>
     <h2 id="dl-title">Stop sitting. Start <em>locking in.</em></h2>
     <p>Join the waitlist. First 50 testers get lifetime Pro.</p>
     <div class="final-cta-row">
@@ -455,7 +466,7 @@
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" hidden>
   <div class="footer-inner">
     <a class="brand" href="index.html">
       <img class="brand-icon" src="app-icon.png" alt="" width="28" height="28" style="width:28px;height:28px" />
@@ -478,7 +489,6 @@
 <script>
 (function () {
   var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSe_aKbn0mp4SOPrQbG-kjA4OW1ZfELICnvFQA2vUutSlAQRjQ/formResponse";
-  var ENTRY_NAME = "entry.155207820";
   var ENTRY_EMAIL = "entry.155826540";
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -487,19 +497,17 @@
       e.preventDefault();
       var status = form.querySelector(".wl-status");
       var button = form.querySelector("button[type=submit]");
-      var name = form.querySelector("input[name=name]").value.trim();
-      var email = form.querySelector("input[name=email]").value.trim();
+      var emailInput = form.querySelector("input[name=email]");
+      var email = emailInput ? emailInput.value.trim() : "";
 
       status.classList.remove("is-ok", "is-err");
 
-      if (!name) { status.textContent = "Please enter your name."; status.classList.add("is-err"); return; }
       if (!EMAIL_RE.test(email)) { status.textContent = "Please enter a valid email."; status.classList.add("is-err"); return; }
 
       button.disabled = true;
       status.textContent = "Sending…";
 
       var data = new FormData();
-      data.append(ENTRY_NAME, name);
       data.append(ENTRY_EMAIL, email);
 
       fetch(FORM_ACTION, { method: "POST", mode: "no-cors", body: data })
@@ -508,6 +516,9 @@
           status.textContent = "Thanks. You're on the list.";
           status.classList.add("is-ok");
           button.disabled = false;
+          if (window.posthog) {
+            window.posthog.capture('web.focusreps.waitlist_submit', { form_id: form.id || null });
+          }
         })
         .catch(function () {
           status.textContent = "Something went wrong. Please try again.";

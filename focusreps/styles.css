@@ -269,7 +269,7 @@ h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacin
 }
 
 /* ========== Rhythm (what's a micro exercise) ========== */
-.rhythm { background: var(--cream); padding: 100px 24px; text-align: left; }
+.rhythm { background: var(--cream); padding: 100px 24px 60px; text-align: left; }
 .rhythm-inner { max-width: 900px; margin: 0 auto; }
 .rhythm-inner > h2 { margin-bottom: 32px; }
 .rhythm-inner > h2 em { font-style: normal; color: var(--orange); }
@@ -341,11 +341,8 @@ h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacin
   padding-right: 2px;
 }
 .rhythm-sum {
-  margin: 48px 0 0;
-  padding: 24px 28px;
-  border-left: 3px solid var(--orange);
-  background: #fff;
-  font-family: var(--mono); font-size: 15px; line-height: 1.7;
+  margin: 32px 0 0;
+  font-family: var(--mono); font-size: 16px; line-height: 1.7;
   color: var(--ink-2); max-width: 60ch;
 }
 .rhythm-sum strong { color: var(--ink); font-weight: 700; }

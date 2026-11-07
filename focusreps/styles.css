@@ -1105,3 +1105,31 @@ details p {
   .rhythm-timeline { grid-template-columns: 1fr; }
   .rhythm-axis { text-align: left; }
 }
+
+.featured-badges { text-align: left; padding: 24px 16px; }
+.featured-badges a { display: inline-block; margin: 0 8px; vertical-align: middle; }
+.featured-badges img { display: inline-block; vertical-align: middle; }
+
+@media (max-width: 640px) {
+  .featured-badges {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 16px;
+  }
+  .featured-badges a {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+  }
+  .featured-badges img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 42px;
+    margin: 0;
+  }
+}
+
